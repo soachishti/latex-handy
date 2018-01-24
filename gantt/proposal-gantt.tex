@@ -1,0 +1,49 @@
+\documentclass[border=12pt]{standalone}
+%\usepackage[left=0.25in]{geometry}
+\usepackage{tikz}
+\thispagestyle{empty}
+\usetikzlibrary{shadows}
+\usepackage{gantt}
+
+\newcommand{\defcolor}{red}
+\begin{document}
+
+ \begin{gantt}[xunitlength=0.8cm,fontsize=\small,titlefontsize=\small,drawledgerline=true]{19}{24}
+    \begin{ganttitle}
+      \numtitle{2012}{1}{2012}{10}
+      \numtitle{2013}{1}{2013}{12}
+      \numtitle{2014}{1}{2014}{2}
+    \end{ganttitle}
+    \begin{ganttitle}
+      \numtitle{3}{1}{12}{1}
+      \numtitle{1}{1}{12}{1}
+      \numtitle{1}{1}{2}{1}
+    \end{ganttitle}
+    \ganttmilestone{Proposal Defense}{0}
+    %=======================================
+    \ganttgroup{Background Study}{0}{6}
+    \ganttbar[color=\defcolor]{Android Security}{0}{3}
+    \ganttbarcon[color=\defcolor]{Code Analysis}{3}{2}
+    \ganttbarcon[color=\defcolor]{Policy Mechanisms}{5}{1}
+    \ganttmilestonecon{Literature Review Complete}{6}
+    %=======================================
+    \ganttbarcon[color=\defcolor]{\textbf{Formal Specification}}{6}{6}
+    \ganttmilestonecon{Spec Document}{12}
+	%=======================================
+    \ganttgroup{Prototype Implementation}{12}{8}
+    \ganttbar[color=\defcolor]{Model Implementation}{12}{4}
+    \ganttcon{12}{9}{12}{11}
+    \ganttbarcon[color=\defcolor]{Code Incorporation}{16}{3}
+    \ganttbarcon[color=\defcolor]{Testing}{19}{1}
+    \ganttmilestonecon{Prototype Release}{20}
+	%=======================================
+    \ganttgroup{Evaluation}{20}{3}
+	\ganttbar[color=\defcolor]{Security Evaluation}{20}{2}
+	\ganttcon{20}{14}{20}{16}
+	\ganttbarcon[color=\defcolor]{Performance Evaluation}{22}{1}
+
+    %=======================================
+    \ganttbar[color=blue]{Thesis and Paper Writing}{0}{24}
+  \end{gantt}
+  
+\end{document}

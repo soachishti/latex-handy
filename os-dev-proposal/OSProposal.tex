@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\geometry{margin=1in}
+%opening
+\title{\vspace{-1cm}Operating System Kernel in C}
+\date{April 26, 2016}
+\author{
+	Owais Chishti\\
+	\texttt{p146011@nu.edu.pk}
+	\and	
+	Faisal Usman\\
+	\texttt{p146016@nu.edu.pk}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Objective}
+To understand the internal structure of Operating system and mechanism through which it execute, handle user request using the keyboard interrupts, timer and VGA graphics to show output.  
+
+\section{Motivation}
+While a bit of research, found out how a program (operating system) is loaded to the memory using boot loader, using the specification described in the documentation manual of Intel 8086 which is still compatible in latest CPU build to date.
+
+\section{Result}
+\begin{itemize}  
+	\item Kernel loaded using GRUB boot loader.
+	\item Interrupt Descriptive Table to handle common interrupts.
+	\item Provide user with interactive command such as print, version, help, date, etc
+	\item Utilize timer to minimizer busy waiting in kernel.
+	\item Implement basic syscall for kernel modules.
+	\item Basic memory management module.
+	\item Utilize dual CPU to perform any task.
+\end{itemize}
+
+\section{Submission}
+\begin{itemize}  
+	\item To show, running Kernel on hardware instead of host operating system.
+	\item To provide a virtual disk which include the whole environment used for the development of Kernel.
+	\item Submit a document including all detail of research and problem while the process of learning/development.
+\end{itemize}
+
+\end{document}
