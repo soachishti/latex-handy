@@ -1,0 +1,40 @@
+
+Name: new-frame
+Trigger: (?<=\s|^)%
+Shortcut: Ctrl+Shift+N
+
+\begin{frame}[%<allowframebreaks,%>%<fragile,%>t] 
+%-------------------------------
+\frametitle{%<title%>}
+\begin{itemize}
+\item %<content%>
+\end{itemize}
+
+\end{frame}
+
+
+
+Name: new-frame-img 
+Trigger: (?<=\S)% 
+Shortcut: Ctrl+Shift+M
+
+\begin{frame}[%<allowframebreaks,%>%<fragile,%>t] 
+%-------------------------------
+\frametitle{%<title%>}
+\begin{itemize}
+\item %<content%>
+\end{itemize}
+
+\end{frame}
+
+
+Name: surround-itemize 
+Trigger: (?<=\S)% 
+Shortcut: Ctrl+I
+
+%itemize
+
+
+Name: cemphasize
+Trigger: 
+Shortcut: Alt+C

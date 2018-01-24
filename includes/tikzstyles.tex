@@ -1,0 +1,105 @@
+\pgfdeclaredecoration{free hand}{start}
+{
+  \state{start}[width = +0pt,
+  next state=step,
+  persistent precomputation = \pgfdecoratepathhascornerstrue]{}
+  \state{step}[auto end on length    = 3pt,
+  auto corner on length = 3pt,               
+  width=+2pt]
+  {
+    \pgfpathlineto{
+      \pgfpointadd
+      {\pgfpoint{2pt}{0pt}}
+      {\pgfpoint{rand*0.25pt}{rand*0.25pt}}
+%            {\pgfpoint{rand*0.15pt}{rand*0.15pt}}
+    }
+  }
+  \state{final}
+  {}
+}
+\tikzset{free hand/.style={
+    decorate,
+    decoration={free hand}
+  }
+} 
+\def\freedraw#1;{\draw[free hand] #1;} 
+
+\tikzset{
+  %Define standard arrow tip
+  >=stealth',
+  %Define style for boxes
+  punkt/.style={
+    rectangle,
+    rounded corners,
+    draw=black, very thick,
+    text width=4em, 
+    minimum height=1em,
+    text centered},
+    % Define arrow style
+    pil/.style={
+      ->,
+      thin,
+      shorten <=2pt,
+      shorten >=2pt,
+    },
+    dummyheight/.style={
+        punkt,fill=none,
+        draw=black, dashed, thin
+    },
+    dropshadowfade/.style={drop shadow={shadow xshift=0.1em,
+         shadow yshift=-0.1em, opacity=0.5
+      }, 
+      preaction={drop shadow ={shadow xshift=0.15em, shadow  
+        yshift=-0.15em, opacity=.3} , 
+      	preaction={ 
+      	  drop shadow={opacity=.1, 
+      	    shadow xshift=0.2em, shadow yshift=-0.2em}}}, 
+  },
+}
+
+
+\tikzset{
+  codeline/.style={anchor=west,font=\tt,align=left},
+  codeind/.style={xshift=1em},
+  codeunind/.style={xshift=-1em},
+  codehlight/.style={fill=blue!15},
+  codehlight2/.style={fill=red!15},
+}
+
+
+\tikzset{
+  pointer/.style={draw,rectangle, dropshadowfade, fill=blue!15,
+    minimum width=2em, minimum height=2em,}, 
+  varbox/.style={draw,rectangle, dropshadowfade, fill=green!15,
+    minimum width=2em, minimum height=2em,},
+  pointarrow/.style={*->, thick, >=stealth'},
+  descbox/.style={draw,rectangle,fill=gray!15,font=\scriptsize},
+  descarrow/.style={->, dotted, >=stealth'},
+  classbox/.style={draw,rectangle split, dropshadowfade, fill=red!5,font=\scriptsize},
+  inheritarrow/.style={->,solid}
+  }
+
+\newcommand{\nptwo}{\nodepart{two}}  
+  
+\tikzset{
+  listnode/.style={draw, rectangle split, rectangle split parts=2, rectangle split horizontal, dropshadowfade, fill=blue!5, font=\tt},  
+  listconn/.style={->,>=stealth'},
+  dblistnode/.style={listnode, rectangle split parts=3},  
+  nullnode/.style={draw, circle solidus}
+}
+%\newcommand{chainlabel}[2]{\path [<-, draw, shorten >=10pt] #1 |- node [at end] {#2} ++(-1,1);}
+
+\tikzset{
+  stack/.style={rectangle split, rectangle split parts=#1,draw, anchor=center}
+}
+
+\tikzset{
+  proc/.style={draw,circle,dropshadowfade,fill=white,fill=blue!15}, 
+  res/.style={rectangle,inner sep=1em, fill=green!15,dropshadowfade,rounded corners=2pt}, 
+  resi/.style={circle, inner sep=0.11em,circle,node distance=0.5em,fill=black},
+  use/.style={draw,<-,>=stealth',blue!50!black,thick},
+  needs/.style={draw,<-,>=stealth',red!50!black, thick},
+  mightneed/.style={draw,<-,>=stealth',red!50!black,dotted,thick},
+  linelabel/.style={midway,fill=white,font=\tiny},
+  usedres/.style={fill=red!15}
+}
